@@ -21,7 +21,7 @@ public class UInput
     {
         while (true)
         {
-            string temp = Console.ReadLine();
+            string? temp = Console.ReadLine();
             if (temp != null)
             {
                 this.input = temp;

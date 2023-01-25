@@ -1,20 +1,18 @@
 class Presenter_log
 {
-    private const string path = "Logger/Log_file/log.log";
+    private string path = @"Logger\Log_file\log.log";
 
-    private Reader_file1 ReadFil1;
-    private string lo;
-
-    internal Reader_file1 ReadFil11 { get => ReadFil1; set => ReadFil1 = value; }
-    public string Lo { get => lo; set => lo = value; }
-
+    private Reader_file1 readFil1;
+    internal Reader_file1 ReadFil1 { get => readFil1; set => readFil1 = value; }
+    public string Path { get => path; set => path = value; }
     public Presenter_log()
     {
-        this.ReadFil1 = new Reader_file1(path);
-    }
+        this.ReadFil1 = new Reader_file1(Path);
 
+    }
     public void show_log()
     {
-
+        new Presenter(this.ReadFil1.File).print();
+        new Logger(User_Interface.USER_LOG_VIEWED);
     }
 }

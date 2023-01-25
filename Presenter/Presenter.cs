@@ -2,7 +2,7 @@ class Presenter
 {
     private string? view;
 
-    public Presenter(string? view)
+    public Presenter(string view)
     {
         this.View = view;
     }

@@ -1,45 +1,34 @@
-class Writer_file1<T> List<T>
+using System.IO;
+
+class Writer_file1<T> : List<T>
 {
     private string path;
-private List file;
+    private List<T> file;
 
-public Writer_file1(string path)
-{
-    this.Path = path;
-}
-
-public Writer_file1(string path, List file) : this(path)
+    public Writer_file1(string path)
     {
-    this.File = file;
-}
-
-public Writer_file1(List file)
-{
-    this.Path = "Data/Data_file/data.txt";
-    this.File = file;
-}
-
-public string Path { get => path; set => path = value; }
-public T File { get => file; set => file = value; }
-
-// public async Task writeFileFullAsync(List<double> f)
-// {
-// using (StreamWriter writer = new StreamWriter(this.Path, false))
-// {
-// await writer.WriteLineAsync(f);
-// }
-
-// }
-public async void writeFileAdd()
-{
-    using (StreamWriter streamWriter = new StreamWriter(this.Path, true))
-    {
-        foreach (double item in this.File)
-        {
-            await streamWriter.WriteLineAsync(Convert.ToString(item));
-
-        }
+        this.Path = path;
+        File = new List<T>();
     }
 
-}
+    public Writer_file1(string path, List<T> file) : this(path) => this.File = file;
+
+    public Writer_file1(List<T> file)
+    {
+        this.File = file;
+    }
+
+    public string Path { get => path; set => path = value; }
+    public List<T> File { get => file; set => file = value; }
+
+    public async void writeFileAdd()
+    {
+        using (StreamWriter streamWriter = new StreamWriter(this.Path, true))
+        {
+            foreach (T item in this.File)
+            {
+                await streamWriter.WriteLineAsync(Convert.ToString(item));
+            }
+        }
+    }
 }

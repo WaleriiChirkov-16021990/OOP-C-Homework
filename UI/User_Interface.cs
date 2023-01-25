@@ -23,13 +23,18 @@ class User_Interface
     private const string vIEW_SECOND_NUMBER = "Введите второе число: ";
     private const string eNTER_FIRST_NUM_INFO = "пользователь ввел первое число %s";
     private const string eNTER_SECOND_NUM_INFO = "пользователь ввел второе число";
-    private const string zERO_DIVIZION_ERR_INFO = "пользователь пытается делить на";
+    private const string zERO_DIVIZION_ERR_INFO = "пользователь пытается делить на 0";
     private const string wARNING_ZERO_DIVISION = "На 0 делить нельзя!";
 
     private const string rESULT_INFO = "пользователь получил результат ";
 
     private const string rESULT_HISTORY_INFO = "текущая история результатов ";
     private const string rESULT = "ответ =  ";
+
+    private const string uSER_LOG_VIEWED = "Пользователь просмотрел лог.";
+    private const string dATA_WRITE = "Сектерная дата успешно записан !=) ";
+
+
 
     public static string START_INFO => sTART_INFO;
 
@@ -86,4 +91,8 @@ class User_Interface
     public static string RESULT => rESULT;
 
     public static string CURENT_VALUE => cURENT_VALUE;
+
+    public static string USER_LOG_VIEWED => uSER_LOG_VIEWED;
+
+    public static string DATA_WRITE => dATA_WRITE;
 }
