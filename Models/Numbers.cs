@@ -6,7 +6,7 @@ public class Numbers
     {
         this.Result = new List<double>();
     }
-    public Numbers(List<double>? result)
+    public Numbers(List<double> result)
     {
         this.Result = result;
     }
@@ -15,6 +15,9 @@ public class Numbers
 
     public void addResult(double result)
     {
-        this.Result.Add(result);
+        if (this.Result is not null)
+        {
+            this.Result.Add(result);
+        }
     }
 }

@@ -2,8 +2,8 @@ using System.IO;
 
 class Writer_file1<T> : List<T>
 {
-    private string path;
-    private List<T> file;
+    private string? path;
+    private List<T>? file;
 
     public Writer_file1(string path)
     {
@@ -18,16 +18,23 @@ class Writer_file1<T> : List<T>
         this.File = file;
     }
 
-    public string Path { get => path; set => path = value; }
-    public List<T> File { get => file; set => file = value; }
+    public string? Path { get => path; set => path = value; }
+    public List<T>? File { get => file; set => file = value; }
 
     public async void writeFileAdd()
     {
-        using (StreamWriter streamWriter = new StreamWriter(this.Path, true))
+        if (this.Path is not null)
         {
-            foreach (T item in this.File)
+
+            using (StreamWriter streamWriter = new StreamWriter(this.Path, true))
             {
-                await streamWriter.WriteLineAsync(Convert.ToString(item));
+                if (this.File is not null)
+                {
+                    foreach (T item in this.File)
+                    {
+                        await streamWriter.WriteLineAsync(Convert.ToString(item));
+                    }
+                }
             }
         }
     }

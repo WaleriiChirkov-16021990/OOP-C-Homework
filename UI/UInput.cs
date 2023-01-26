@@ -1,6 +1,6 @@
 public class UInput
 {
-    private string input;
+    private string? input;
     private List<string>? h_input;
 
 
@@ -15,17 +15,18 @@ public class UInput
         this.h_input = new List<string>();
     }
 
-    public string Input { get => input; set => input = value; }
+    public string? Input { get => input; set => input = value; }
     public List<string>? H_input { get => h_input; set => h_input = value; }
     public void user_input()
     {
         while (true)
         {
             string? temp = Console.ReadLine();
-            if (temp != null)
+            if (temp != null &&
+                this.H_input is not null)
             {
                 this.input = temp;
-                this.h_input.Add(this.input);
+                this.H_input.Add(this.input);
             }
             break;
         }

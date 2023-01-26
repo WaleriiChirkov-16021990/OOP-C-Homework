@@ -27,9 +27,14 @@ class Presenter_data : Presenter
 
     public void printData()
     {
-        foreach (double item in this.Data.Numbers.Result)
+        if (this.Data is not null &&
+            this.Data.Numbers is not null &&
+             this.Data.Numbers.Result is not null)
         {
-            new Presenter(Convert.ToString(item));
+            foreach (double item in this.Data.Numbers.Result)
+            {
+                new Presenter(Convert.ToString(item));
+            }
         }
     }
 }

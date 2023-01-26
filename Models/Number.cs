@@ -1,10 +1,10 @@
 public class Number
 {
     private double num;
-    private UInput uInput;
+    private UInput? uInput;
 
     public double Num { get => num; set => num = value; }
-    public UInput UInput { get => uInput; set => uInput = value; }
+    public UInput? UInput { get => uInput; set => uInput = value; }
 
     public Number(double num)
     {
@@ -15,7 +15,6 @@ public class Number
     public Number()
     {
         this.UInput = new UInput();
-        // this.addNum(User_Interface.ENTER_FIRST_NUMBER);
     }
 
     public Number(string msg)
